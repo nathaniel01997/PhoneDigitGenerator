@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="numpad">
+      <div class="button" (click)="addToInput('1')">1</div>
+      <div class="button" (click)="addToInput('2')">2</div>
+      <div class="button" (click)="addToInput('3')">3</div>
+      <div class="button" (click)="addToInput('4')">4</div>
+      <div class="button" (click)="addToInput('5')">5</div>
+      <div class="button" (click)="addToInput('6')">6</div>
+      <div class="button" (click)="addToInput('7')">7</div>
+      <div class="button" (click)="addToInput('8')">8</div>
+      <div class="button" (click)="addToInput('9')">9</div>
+    </div>
+    <input type="text" id="phoneNumber" [(ngModel)]="phoneNumber">
+    <button (click)="generateCombinations()">Generate Combinations</button>
+    <div id="combinations">
+      <h3>Possible Combinations:</h3>
+      <div *ngIf="phoneNumber.includes('1'); then noCombinations else combinationsList"></div>
+      <ng-template #noCombinations>
+        <div>No possible combinations for 1</div>
+      </ng-template>
+      <ng-template #combinationsList>
+        <div style="text-align: center;" *ngFor="let combination of combinations">{{ combination }}</div>
+      </ng-template>
+    </div>
+</div>
+  
